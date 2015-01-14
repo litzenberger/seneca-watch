@@ -1,0 +1,16 @@
+{
+  "name": "seneca-watch",
+  "version": "0.0.1",
+  "description": "seneca plugin to collect stats and errors",
+  "main": "watch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ron Litzenberger (@litzenberger)",
+  "license": "MIT",
+  "dependencies": {
+    "seneca": "^0.5.21",
+    "seneca-mongo-store": "^0.1.10",
+    "underscore": "^1.7.0"
+  }
+}
