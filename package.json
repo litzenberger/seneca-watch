@@ -10,7 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "seneca": "^0.5.21",
-    "seneca-mongo-store": "^0.1.10",
     "underscore": "^1.7.0"
   }
 }

@@ -2,7 +2,7 @@
 
 module.exports ={
      watch: {
-        interval:   60000,
-        obj :[{plugin:'watch',cmd:'connect'}]
+        interval:   10000,
+        act:   'role:seneca,stats:true'
       }
   }
