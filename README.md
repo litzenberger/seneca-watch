@@ -5,7 +5,5 @@
 /____  >\___  >___|  /\___  >\___  >____  /           \/\_/  (____  /__|  \___  >___|  /
      \/     \/     \/     \/     \/     \/                        \/          \/     \/
      
-     
 
-# seneca-watch
 seneca plugin to collect system stats and errors
