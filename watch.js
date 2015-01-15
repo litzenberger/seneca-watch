@@ -6,7 +6,9 @@ module.exports = function (options) {
   var seneca = this;
   var plugin = 'watch';
   var so = seneca.options();
-var pin = seneca.pin({role:plugin, cmd:'*' });
+  var pin = seneca.pin({role:plugin, cmd:'*' });
+  var stats_total={};
+
   /*
   * Setup option defaults
   */
@@ -27,13 +29,7 @@ var pin = seneca.pin({role:plugin, cmd:'*' });
 
     function stats(args,done)
     {
-
-     seneca.act('role:seneca,stats:true', function(err,out){
-      var stats = out.actmap
-      var mem   = process.memoryUsage()
-      console.log(JSON.stringify(stats));
-      //console.log( stats.time.rate, fr(stats.time.allrate), ctxt.total, fr(ctxt.total/ctxt.count), (fr(100 * mem.heapUsed / mem.heapTotal))/100, fr(mem.heapTotal/(1024*1024)) )
-    })
+      done(null,stats_total);
 
     }
 
@@ -54,10 +50,18 @@ var pin = seneca.pin({role:plugin, cmd:'*' });
           }
           else{
             var mem   = process.memoryUsage()
-            console.log(stats.start);
-            console.log(stats.act);
-
-            console.log(JSON.stringify(stats.actmap[options.watch.act]));
+            stats_total.start=stats.start;
+            stats_total.act=stats.act;
+            console.log('stats start  ' +stats_total.start);
+            console.log(stats_total.act);
+            if(options.watch.act==='all')
+            {
+              console.log(JSON.stringify(stats.actmap));
+            }
+            else
+            {
+              console.log(JSON.stringify(stats.actmap[options.watch.act]));
+            }
             //console.log( stats.time.rate, fr(stats.time.allrate), ctxt.total, fr(ctxt.total/ctxt.count), (fr(100 * mem.heapUsed / mem.heapTotal))/100, fr(mem.heapTotal/(1024*1024)) )
             console.log((100 * mem.heapUsed) / (mem.heapTotal/100))
 

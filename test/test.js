@@ -6,8 +6,6 @@ var seneca = require('seneca')()
 */
 
 
-
-
 seneca.ready(function(){
 console.log("runing..........")
 })
